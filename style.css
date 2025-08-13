@@ -3,6 +3,9 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-image: url('math2.jpg.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .topText{
@@ -10,23 +13,26 @@ body{
     flex-direction: row;
     justify-content: center;
     width: 100%;
-    font-size: 38px;
+    font-size: 34px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
-    border: solid 1px black;
-    margin-bottom: 25px;
+    margin: 10px 20px 20px 10px;
 }
 
 #icon {
-    margin-left: 25px;
-    margin-top: 5px;
+    margin-left: 10px;
 }
 
 .textBottom{
+    display: flex;
     text-decoration: none;
-    margin: 10px;
+    margin: 20px;
     font-size: 18px;
     font-family: 'Courier New', Courier, monospace;
+}
+
+#made {
+    margin-top: 5px;
 }
 
 a{
@@ -35,7 +41,7 @@ a{
     font-weight: bold;
 }
 
-.calculatorContainer{
+/* .calculatorContainer{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -43,10 +49,33 @@ a{
     width: 400px;
     height: 650px;
     border: solid 1px black;
-    border-radius: 14px;
+    border-radius: 18px;
     background: rgb(165, 165, 165);
+    margin-top: 80px;
+} */
 
+
+.calculatorContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 400px;
+    height: 650px;
+    border: solid 1px rgba(0,0,0,0.2); /* lighter border for floating effect */
+    border-radius: 18px;
+    background: #A5A5A5;
+    margin-top: 80px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4); /* soft shadow to make it float */
+    transition: all 0.3s ease; /* optional: smooth hover effects */
 }
+
+/* Optional: lift it a bit on hover */
+.calculatorContainer:hover {
+    box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+    transform: translateY(-2.5px);
+}
+
 
 .calculatorScreen{
     display: flex;
@@ -56,29 +85,55 @@ a{
     width: 350px;
     height: 150px;
     border: solid 1px black;
-    border-radius: 12px;
+    border-radius: 14px;
     margin: 25px;
     font-size: 40px;
-    background: gray;
+    background: #808080;
+    overflow: hidden;
 }
 
 .button, 
 .numbers
 {
-    width: 68px;
-    height: 68px;
+    width: 74px;
+    height: 74px;
     border: solid 1px black;
-    border-radius: 8px;
-    font-size: 32px;
-    background: aliceblue;
+    border-radius: 38px;
+    font-size: 34px;
+    background:  #E0E0E0;
     margin: 8px;
     cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .button:hover,
 .numbers:hover
 {
-    background: rgb(191, 219, 244);
+    background: #B0C4DE;
+}
+
+#clear{
+    background: #E74C3C;
+}
+
+#clear:hover{
+    background: #FF6666;
+}
+
+#equals{
+    background-color: #2ECC71;
+}
+
+#equals:hover{
+    background: #27AE60;
+}
+
+#factorial:hover{
+    background: rgb(110, 117, 103);
+}
+
+#operators:hover{
+    background: #1F77B4;
 }
 
 .buttons{

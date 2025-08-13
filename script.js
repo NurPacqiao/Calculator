@@ -1,58 +1,138 @@
-function add(a, b){
-    return a + b;
-}
-
-function subtract(a, b){
-    return a - b;
-}
-
-function multiply(a, b){
-    return a * b;
-}
-
-function divide(a, b){
-    if(b === 0){
-        console.log("You can not divide by 0");
-        return;
+function factorial(num) {
+    if (num < 0) return "Error";
+    if (num === 0 || num === 1) return 1;
+    let result = 1;
+    for (let i = 2; i <= num; i++) {
+        result *= i;
     }
-    else{
-        return a / b;
-    }
+    return result;
 }
 
-console.log(add(1, 2));
-console.log(subtract(2, 3));
-console.log(multiply(3, 4));
-console.log(divide(6, 3));
+function square(a){
+    return a * a;
+}
+
+
+function formatNumber(num) {
+    if (num === 'Error') return num;
+    if (Math.abs(num) >= 1e7 || (Math.abs(num) > 0 && Math.abs(num) < 1e-4)) {
+        return num.toExponential(3); // scientific notation with 3 decimals
+    }
+    return parseFloat(num.toFixed(2)); // normal with 2 decimals
+}
+
+function operate(a, b, op) {
+    let result;
+    switch (op) {
+        case '+':
+            result = a + b;
+            break;
+        case '-':
+            result = a - b;
+            break;
+        case 'x':
+            result = a * b;
+            break;
+        case '÷':
+            result = b !== 0 ? a / b : 'Error';
+            break;
+    }
+    return formatNumber(result);
+}
 
 const screen = document.querySelector(".calculatorScreen");
 
+let operand1 = ''; 
+let operand2 = '';
+let operator = '';
+let resetNextInput = false;
 
-let operand1, operand2, operator;
+const btns = document.querySelectorAll(".button");
+btns.forEach(btn => {
+    btn.addEventListener("click", () => {
 
-function operate(operand1, operand2, operator){
-    switch (operator){
-        case '+':
-            screen.textContent = add(operand1. operand2);
-        case '-':
-            screen.textContent = subtract(operand1, operand2);
-        case 'x':
-            screen.textContent = multiply(operand1, operand2);
-        case '/':
-            screen.textContent = divide(operand1, operand2);
-    }
-}
+            if(btn.textContent ==='AC'){
+                screen.textContent = '';
+                operand1 = '';
+                operand2 = '';
+                operator = '';
+                resetNextInput = false;
+                return;
+            }
 
-function buttons(){
-    const btns = document.querySelector(".buttons");
-    for(let i = 0; i < 10; i++){
-        const btn = document.createElement("button");
-        btn.classList.add("numbers");
-        btn.textContent = i;
-        btns.appendChild(btn);
-    }
-}
+            if(btn.textContent === 'C'){
+                if (operator === '') {
+                    operand1 = operand1.slice(0, -1);
+                    screen.textContent = operand1;
+                } else {
+                    operand2 = operand2.slice(0, -1);
+                    screen.textContent = operand2;
+                }
+                return;
+            }
 
+            if (btn.textContent === 'n!'){
+                const result = factorial(parseFloat(screen.textContent));
+                screen.textContent = result.toString();
+                operand1 = screen.textContent;
+                operand2 = '';
+                operator = '';
+                resetNextInput = true;
+                return;
+            }
 
-buttons();
-operate(1, 2, '-');
+            if(btn.textContent === 'n2'){
+                const result = square(parseFloat(screen.textContent));
+                screen.textContent = result.toString();
+                operand1 = screen.textContent;
+                operand2 = '';
+                operator = '';
+                resetNextInput = true;
+                return;
+            }
+
+            if(['+', '-', 'x', '÷'].includes(btn.textContent)){
+                if(operand1 === '' && screen.textContent !== ''){
+                    const result = operate(parseFloat(operand1), parseFloat(operand2), operator);
+                    screen.textContent = result;
+                    operand1 = result.toString();
+                    operand2 = '';
+                }
+                operator = btn.textContent;
+                resetNextInput = true;
+                return;
+            }
+
+            if(btn.textContent === '='){
+                if(operand1 !== '' && operand2 !== '' && operator !== ''){
+                    const result = operate(parseFloat(operand1), parseFloat(operand2), operator);
+                    screen.textContent = result;
+                    operand1 = screen.textContent;
+                    operand2 = '';
+                    operator = '';
+                    resetNextInput = true;
+                }
+                return;
+            }
+
+            if(operator === ''){
+                if(resetNextInput){
+                    operand1 = '';
+                    resetNextInput = false;
+                }
+                if(btn.textContent === '.' && operand1.includes('.')) return;
+                operand1 += btn.textContent;
+                screen.textContent = operand1;
+            }
+            else {
+                if(resetNextInput){
+                    operand2 = '';
+                    resetNextInput = false;
+                }
+                if(btn.textContent === '.' && operand2.includes('.')) return;
+                operand2 += btn.textContent;
+                screen.textContent = operand2;
+            }
+
+    });
+});
