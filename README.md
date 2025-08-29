@@ -5,26 +5,30 @@ A simple calculator written in JavaScript, capable of performing elementary arit
 ⸻
 
 🚀 Features
-	•	Addition, subtraction, multiplication, and division
-	•	Calculate the square of a number
-	•	Calculate the factorial of a number
-	•	Clear/reset functionality
-	•	Simple, beginner-friendly design
+
+•	Addition, subtraction, multiplication, and division
+•	Calculate the square of a number
+•	Calculate the factorial of a number
+•	Clear/reset functionality
+•	Simple, beginner-friendly design
 
 ⸻
 
 🛠️ Technologies Used
-	•	HTML5 – structure
-	•	CSS3 – basic styling
-	•	JavaScript – calculation logic
+
+•	HTML5 – structure
+•	CSS3 – basic styling
+•	JavaScript – calculation logic
 
 ⸻
 
 📦 How to Run
-	1.	Download or clone the repository:
+
+1.	Download or clone the repository:
+   
  git clone https://github.com/NurPacqiao/Calculator.git
 
- 2.	Open index.html in your preferred web browser.
+2.	Open index.html in your preferred web browser.
 
 ⸻
 
@@ -32,10 +36,11 @@ A simple calculator written in JavaScript, capable of performing elementary arit
 
 
 📝 How It Works
-	•	Enter numbers using the on-screen buttons or your keyboard.
-	•	Select an operation (e.g., +, -, ×, ÷, x², !).
-	•	Press = to see the result.
-	•	Press C to reset.
+
+•	Enter numbers using the on-screen buttons or your keyboard.
+•	Select an operation (e.g., +, -, ×, ÷, x², !).
+•	Press = to see the result.
+•	Press C to reset.
 
 ⸻
 
