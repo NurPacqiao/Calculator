@@ -7,9 +7,13 @@ A simple calculator written in JavaScript, capable of performing elementary arit
 🚀 Features
 
 •	Addition, subtraction, multiplication, and division
+
 •	Calculate the square of a number
+
 •	Calculate the factorial of a number
+
 •	Clear/reset functionality
+
 •	Simple, beginner-friendly design
 
 ⸻
@@ -17,7 +21,9 @@ A simple calculator written in JavaScript, capable of performing elementary arit
 🛠️ Technologies Used
 
 •	HTML5 – structure
+
 •	CSS3 – basic styling
+
 •	JavaScript – calculation logic
 
 ⸻
@@ -38,8 +44,11 @@ A simple calculator written in JavaScript, capable of performing elementary arit
 📝 How It Works
 
 •	Enter numbers using the on-screen buttons or your keyboard.
+
 •	Select an operation (e.g., +, -, ×, ÷, x², !).
+
 •	Press = to see the result.
+
 •	Press C to reset.
 
 ⸻
